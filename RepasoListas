@@ -1,0 +1,85 @@
+import java.util.*;
+public class RepasoListas
+{
+    public static void main(String[] args){
+        int num_buscar = 0;
+        int tamanio =0;
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("Ingrese el tamaño de la lista");
+        tamanio = entrada.nextInt();
+        int lista_num[] = new int[tamanio];
+        
+        setIngresarValores(lista_num); 
+        
+        getPrimosLista(lista_num);
+        //setOrdenarLista(lista_num);
+        
+        //System.out.println("Ingrese el numero a buscar");
+        //num_buscar = entrada.nextInt();
+        //System.out.println(getBusquedaLista(lista_num, num_buscar));
+        
+    }
+    
+    static void setIngresarValores(int[] lista){
+        Scanner entrada2 = new Scanner(System.in);
+        int valores = 0;
+        for(int i=0 ; i<lista.length ; i++){
+            System.out.println("Ingrese valores a la lista");
+            lista[i] = entrada2.nextInt();
+        }
+        for(int i=0 ; i<lista.length ; i++){
+            System.out.println(lista[i]);
+        }
+    }
+    
+    static void setOrdenarLista(int[] lista2){
+        int aux = 0;
+        for(int n=0 ; n<lista2.length-1 ; n++){
+            for(int m=n+1 ; m<lista2.length ; m++){
+                if(lista2[n] < lista2[m]){
+                    aux = lista2[n];
+                    lista2[n] = lista2[m];
+                    lista2[m] = aux;
+                }
+            }
+        }
+        for(int i=0 ; i<lista2.length ; i++){
+            System.out.println(lista2[i]);
+        }
+    }
+    
+    static String getBusquedaLista(int[] lista3, int num){
+        int contador = 0;
+        int bandera = 0;
+        for(int i=0 ; i<lista3.length ; i++){
+            if(num == lista3[i]){
+                bandera = 1;
+                contador +=1;
+            }
+        }
+        System.out.println("La cantidad de veces que se repite el numero es:"+contador);
+        
+        if(bandera == 1){
+            return "El numero ingresado esta en la lista";
+        }
+        else{
+            return "El numero ingresado no esta en la lista";
+        }
+    }
+    
+    static void getPrimosLista(int[] lista4){
+        int cont=0;
+        int resto = 0;
+        for(int i=0 ; i<lista4.length ; i++){
+            for(int x = 2 ; x<lista4[i] ; x++){
+                resto = lista4[i] % x;
+                if (resto == 0){
+                    cont = cont+1;
+                }
+            }
+        
+        }
+        
+    }
+
+}
